@@ -1,0 +1,7 @@
+https://developers.facebook.com/docs/messenger-platform/getting-started/webhook-setup
+https://stackoverflow.com/questions/34379130/pushing-to-heroku-fails-no-such-app-fatal
+https://gist.github.com/randallreedjr/aa89e069371d07371882eea2df15fb4d
+https://stackoverflow.com/questions/28429819/rejected-master-master-fetch-first
+https://www.sitepoint.com/building-facebook-chat-bot-node-heroku/
+https://developers.facebook.com/apps/145905770152594/webhooks/?business_id=2628614180796573
+https://dashboard.heroku.com/apps/floating-scrubland-04378/logs
