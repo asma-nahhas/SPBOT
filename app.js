@@ -28,18 +28,23 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       console.log("the event is below");
       console.log(webhook_event);
-    
+      console.log("Sender obj "+sender_psid.sender);
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log("Sender ID"+sender_psid);
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhook_event.message) {
-        console.log("Hi from webhook_event.message :) ");
-        handleMessage(sender_psid, webhook_event.message);        
+
+            console.log("Hi from webhook_event.message :) ");
+
+            handleMessage(sender_psid, webhook_event.message);
+
       } else if (webhook_event.postback) {
-        
-        handlePostback(sender_psid, webhook_event.postback);
+
+            console.log("It is postpack event"+webhook_event.postback);
+            
+            handlePostback(sender_psid, webhook_event.postback);
       }
       
     });
@@ -111,17 +116,23 @@ function callBasicServices(sender_psid){
           "title":"خدمات MTN",
           "payload":"MTN_SERVICES_PAYLOAD"
       }
+      ,
+      {
+          "type":"postback",
+          "title":"أسوم خدمات",
+          "payload":"ASOUM_SERVICES"
+      }
     ];
     
     console.log(btns);
   callSendAPIWithBtns(sender_psid,btns);
 }
 function handlePostback(sender_psid, received_postback) {
-  console.log('ok')
+  console.log('ok post')
    let response;
   // Get the payload for the postback
   let payload = received_postback.payload;
-    console.log(payload);
+    console.log("payload is" +payload);
   // Set the response based on the postback payload
   if (payload === 'MTN_SERVICES_PAYLOAD') {
     response = [
@@ -141,6 +152,10 @@ function handlePostback(sender_psid, received_postback) {
             "payload":"DATA_PAYLOAD"
         }
       ];
+  }else if(payload === 'ASOUM_SERVICES'){
+    response={ "text":"there is no soso responses"
+    }
+
   }else if (payload === 'DATA_PAYLOAD') {
     response = [
         {
