@@ -1,7 +1,9 @@
+console.log("hio 1");
+
 require('dotenv').config();
 require('dotenv').config({ path: 'C:\Users\ASUS\spbot\env_variables.env' });
 
-
+console.log("hio 2");
 // Required environment variables
 const ENV_VARS = [
     "PAGE_ID",
