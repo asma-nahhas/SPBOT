@@ -14,6 +14,9 @@ const ENV_VARS = [
     "APP_URL"
   ];
 
+
+console.log("hio 3"+process.env.PAGE_ID);
+
   module.exports = {
   // Page and Application information
   pageId: process.env.PAGE_ID,
