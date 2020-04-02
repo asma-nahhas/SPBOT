@@ -28,9 +28,10 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       console.log("the event is below");
       console.log(webhook_event);
-      console.log("Sender obj "+sender_psid.sender);
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
+      console.log("Sender obj "+sender_psid.sender);
+
       console.log("Sender ID"+sender_psid);
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
@@ -153,8 +154,7 @@ function handlePostback(sender_psid, received_postback) {
         }
       ];
   }else if(payload === 'ASOUM_SERVICES'){
-    response={ "text":"there is no soso responses"
-    }
+    response=[{ "text":"there is no soso responses" }];
 
   }else if (payload === 'DATA_PAYLOAD') {
     response = [
