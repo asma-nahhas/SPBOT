@@ -60,7 +60,7 @@ app.get('/webhook', (req, res) => {
    
   /** UPDATE YOUR VERIFY TOKEN **/
   const VERIFY_TOKEN = config.verifyToken;
-  console.log("Verify token from config file is: " + VERIFY_TOKEN);
+  console.log("Verify token from config file is: " + process.env.VERIFY_TOKEN);
   
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
