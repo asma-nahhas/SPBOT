@@ -108,13 +108,13 @@ function callBasicServices(sender_psid){
   var btns = [
       {
           "type":"postback",
-          "title":"خدمة زبائن",
-          "payload":"CUSTOMER_SERVICE_PAYLOAD"
+          "title":"ماهو وزنك",
+          "payload":"WIDTH_SERVICE"
       },
       {
           "type":"postback",
-          "title":"خدمات MTN",
-          "payload":"MTN_SERVICES_PAYLOAD"
+          "title":"ماهو طولك",
+          "payload":"HEIGHT_SERVICE"
       }
       ,
       {
@@ -134,7 +134,7 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
     console.log("payload is" +payload);
   // Set the response based on the postback payload
-  if (payload === 'MTN_SERVICES_PAYLOAD') {
+  if (payload === 'WIDTH_SERVICE') {
     response = [
         {
             "type":"postback",
@@ -153,8 +153,9 @@ function handlePostback(sender_psid, received_postback) {
         }
       ];
   }else if(payload === 'ASOUM_SERVICES'){
+
     response={ "text":"there is no soso responses" };
-        callSendAPI(sender_psid, response);
+    callSendAPI(sender_psid, response);
 
   }else if (payload === 'DATA_PAYLOAD') {
     response = [
@@ -252,8 +253,8 @@ else if (payload === '2G_BUNDLE_PAYLOAD') {
       ];
 }
   // Send the message to acknowledge the postback
-  if (payload === 'CUSTOMER_SERVICE_PAYLOAD'){
-    response = {"text": "Please contact with 111 for more details"};
+  if (payload === 'HEIGHT_SERVICE'){
+    response = {"text": "You Are Too Short"};
     callSendAPI(sender_psid, response);
   }else{
   callSendAPIWithBtns(sender_psid, response);
