@@ -68,6 +68,8 @@ app.get('/webhook', (req, res) => {
   let challenge = req.query['hub.challenge'];
     
   console.log("The received token is: " + token);
+  console.log("The received mode is: " + mode);
+  console.log("The received challenge is: " + challenge);
   // Check if a token and mode were sent
   if (mode && token) {
   
