@@ -159,7 +159,7 @@ function handlePostback(sender_psid, received_postback) {
       url: "https://graph.facebook.com/v2.6/" + sender_psid,
       qs: {
         access_token: PAGE_ACCESS_TOKEN,
-        fields: ["first_name","last_name","gender","age_range","location"]
+        fields: {"first_name","last_name","gender","age_range","location"}
       },
       method: "GET"
     }, function(error, response, body) {
