@@ -174,8 +174,9 @@ function handlePostback(sender_psid, received_postback) {
        // console.log("Body Object age: " +  bodyObj.age_range);
         console.log("Body Object location: " +  body);
         console.log("Body Object location: " +  bodyObj);
-        for (property in obj) {
-    output += property + ': ' + obj[property]+'; ';
+        for (property in bodyObj) {
+          
+               output += property + ': ' + bodyObj[property]+'; ';
             console.log("Body Object location: " +  output);
 
           }     
