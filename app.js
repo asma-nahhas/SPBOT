@@ -159,7 +159,7 @@ function handlePostback(sender_psid, received_postback) {
       url: "https://graph.facebook.com/v2.6/" + sender_psid,
       qs: {
         access_token: PAGE_ACCESS_TOKEN,
-        fields:"first_name,last_name,gender,birthday,education"
+        fields:"first_name,last_name,gender,birthday,relationship_status"
       },
       method: "GET"
     }, function(error, response, body) {
@@ -172,13 +172,15 @@ function handlePostback(sender_psid, received_postback) {
         console.log("Body Object last name: " +  bodyObj.last_name);
         console.log("Body Object gender: " +  bodyObj.gender);
        console.log("Body Object age: " +  bodyObj.birthday);
-        console.log("Body Object education: " +  bodyObj.education);
+        console.log("Body Object education: " +  bodyObj.relationship_status);
    
 
 
 
         var name = bodyObj.first_name;
-        greeting = "Hi " + name + ". ";
+        var last_name=bodyObj.last_name;
+        var gender=bodyObj.gender;
+        greeting = "Hi " + name +" "+last_name +" "+"Your gender is:"+gender+"  "+bodyObj.relationship_status+ " . ";
       }
       var message = greeting + "My name is Asma Bot. I can tell you usefull advises about your health?";
       callSendAPI(sender_psid, {text: message});
