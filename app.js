@@ -154,6 +154,29 @@ function handlePostback(sender_psid, received_postback) {
       ];
   }else if(payload === 'ASOUM_SERVICES'){
 
+
+        request({
+      url: "https://graph.facebook.com/v2.6/" + sender_psid,
+      qs: {
+        access_token: PAGE_ACCESS_TOKEN,
+        fields: "first_name"
+      },
+      method: "GET"
+    }, function(error, response, body) {
+      var greeting = "";
+      if (error) {
+        console.log("Error getting user's name: " +  error);
+      } else {
+        var bodyObj = JSON.parse(body);
+        name = bodyObj.first_name;
+        greeting = "Hi " + name + ". ";
+      }
+      var message = greeting + "My name is SP Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
+      callSendAPI(sender_psid, {text: message});
+    });
+  }
+
+
     response={ "text":"there is no soso responses" };
     callSendAPI(sender_psid, response);
 
