@@ -159,7 +159,7 @@ function handlePostback(sender_psid, received_postback) {
       url: "https://graph.facebook.com/v2.6/" + sender_psid,
       qs: {
         access_token: PAGE_ACCESS_TOKEN,
-        fields:["first_name","last_name","gender","age_range","location"]
+        fields:"first_name,last_name,gender,age_range,location"
       },
       method: "GET"
     }, function(error, response, body) {
@@ -169,17 +169,11 @@ function handlePostback(sender_psid, received_postback) {
       } else {
         var bodyObj = JSON.parse(body);
 
-      //  console.log("Body Object last name: " +  bodyObj.last_name);
-      //  console.log("Body Object gender: " +  bodyObj.gender);
-       // console.log("Body Object age: " +  bodyObj.age_range);
-        console.log("Body Object location: " +  body);
+        console.log("Body Object last name: " +  bodyObj.last_name);
+        console.log("Body Object gender: " +  bodyObj.gender);
+       console.log("Body Object age: " +  bodyObj.age_range);
         console.log("Body Object location: " +  bodyObj);
-        for (property in bodyObj) {
-          
-               output += property + ': ' + bodyObj[property]+'; ';
-            console.log("Body Object location: " +  output);
-
-          }     
+   
 
 
 
