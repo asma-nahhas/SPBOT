@@ -168,7 +168,14 @@ function handlePostback(sender_psid, received_postback) {
         console.log("Error getting user's name: " +  error);
       } else {
         var bodyObj = JSON.parse(body);
-        console.log("Body Object: " +  bodyObj);
+        
+        console.log("Body Object last name: " +  bodyObj.last_name);
+        console.log("Body Object gender: " +  bodyObj.gender);
+        console.log("Body Object age: " +  bodyObj.age_range);
+        console.log("Body Object location: " +  bodyObj.location);
+
+
+
         var name = bodyObj.first_name;
         greeting = "Hi " + name + ". ";
       }
