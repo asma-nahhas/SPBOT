@@ -174,7 +174,7 @@ function handlePostback(sender_psid, received_postback) {
       var message = greeting + "My name is SP Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
       callSendAPI(sender_psid, {text: message});
     });
-  }
+  
 
 
     response={ "text":"there is no soso responses" };
