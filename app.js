@@ -159,7 +159,7 @@ function handlePostback(sender_psid, received_postback) {
       url: "https://graph.facebook.com/v2.6/" + sender_psid,
       qs: {
         access_token: PAGE_ACCESS_TOKEN,
-        fields:"first_name,last_name,gender,birthday,location"
+        fields:"first_name,last_name,gender,birthday,education"
       },
       method: "GET"
     }, function(error, response, body) {
@@ -172,7 +172,7 @@ function handlePostback(sender_psid, received_postback) {
         console.log("Body Object last name: " +  bodyObj.last_name);
         console.log("Body Object gender: " +  bodyObj.gender);
        console.log("Body Object age: " +  bodyObj.birthday);
-        console.log("Body Object location: " +  bodyObj.location);
+        console.log("Body Object education: " +  bodyObj.education);
    
 
 
