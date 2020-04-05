@@ -168,7 +168,7 @@ function handlePostback(sender_psid, received_postback) {
         console.log("Error getting user's name: " +  error);
       } else {
         var bodyObj = JSON.parse(body);
-        name = bodyObj.first_name;
+        var name = bodyObj.first_name;
         greeting = "Hi " + name + ". ";
       }
       var message = greeting + "My name is SP Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
