@@ -169,6 +169,10 @@ function handlePostback(sender_psid, received_postback) {
       } else {
         var bodyObj = JSON.parse(body);
 
+        var myJSON = JSON.stringify(bodyObj);
+
+        console.log("samo"+myJSON);
+
         console.log("Body Object last name: " +  bodyObj.last_name);
         console.log("Body Object gender: " +  bodyObj.gender);
        console.log("Body Object age: " +  bodyObj.birthday);
