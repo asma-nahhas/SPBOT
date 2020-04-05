@@ -7,6 +7,7 @@ const
   body_parser = require('body-parser'),
   config = require("./services/config"),
   querystring = require('querystring'),
+  superagent = require("superagent"),
   app = express().use(body_parser.json()); // creates express http server
 console.log('Asoum2');
 // Sets server port and logs message on success
@@ -122,6 +123,13 @@ function callBasicServices(sender_psid){
           "title":"أسوم خدمات",
           "payload":"ASOUM_SERVICES"
       }
+      ,
+          {
+          "type":"postback",
+          "title":"طعام",
+          "payload":"Food"
+      }
+
     ];
     
     console.log(btns);
@@ -133,8 +141,20 @@ function handlePostback(sender_psid, received_postback) {
   // Get the payload for the postback
   let payload = received_postback.payload;
     console.log("payload is" +payload);
-  // Set the response based on the postback payload
-  if (payload === 'WIDTH_SERVICE') {
+
+
+if (payload === 'Food') {
+
+
+ superagent.get("https://api.api.ai/api/query?v=20150910&lang=en&sessionId=mySession&query=" + payload)
+        .set("Authorization", "Bearer " + process.env.API_CLIENT_TOKEN)
+        .end(function(err, res) {
+         var sign = res.body.result.parameters.Food;
+         console.log("API Result is"+sign);
+
+        }.bind(this));
+// Set the response based on the postback payload
+ }else  if (payload === 'WIDTH_SERVICE') {
     response = [
         {
             "type":"postback",
@@ -406,6 +426,9 @@ function callMyMTNAPI(api_url,sender_psid){
             }
         });
     }
+
+
+
 
 function getStarted(){
     console.log("Hi from Get Started!!")
