@@ -149,10 +149,10 @@ if (payload === 'Food') {
  superagent.get("https://api.api.ai/api/query?v=20150910&lang=en&sessionId=mySession&query=" + payload)
         .set("Authorization", "Bearer " + process.env.API_CLIENT_TOKEN)
         .end(function(err, res) {
-         var sign = res.body.result.parameters.Food;
-         console.log("API Result is"+sign);
+        // var sign = res.body.result.parameters.Food;
+         console.log("API Result is"+res);
 
-        }.bind(this));
+        });
 // Set the response based on the postback payload
  }else  if (payload === 'WIDTH_SERVICE') {
     response = [
