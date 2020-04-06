@@ -5,7 +5,7 @@ const
   request = require('request'),
   express = require('express'),
   body_parser = require('body-parser'),
-  config = require("./services/config"),
+  config = require('./services/config'),
   querystring = require('querystring'),
   app = express().use(body_parser.json()); // creates express http server
 console.log('Asoum2');
